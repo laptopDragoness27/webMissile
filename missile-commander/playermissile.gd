@@ -1,0 +1,24 @@
+extends CharacterBody2D
+
+var explodeScene = preload("res://explosion.tscn")
+const SPEED = 300.0
+const JUMP_VELOCITY = -400.0
+var targetpos
+func _ready():
+	position = Vector2(320,360)
+	targetpos = get_parent().get_node("player").position
+	look_at(targetpos)
+	rotation_degrees+=90
+
+func _physics_process(delta: float) -> void:
+	var direction := global_transform.origin.direction_to(targetpos)
+	var distance := global_transform.origin.distance_to(targetpos)
+	var max_speed := (distance / delta)
+	velocity = direction * minf(300, 300)
+	move_and_slide()
+	if distance<5:
+		var instance = explodeScene.instantiate()
+		get_parent().add_child(instance)
+		instance.position = position
+		queue_free()
+		#explode
