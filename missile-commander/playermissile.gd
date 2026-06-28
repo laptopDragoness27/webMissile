@@ -20,5 +20,6 @@ func _physics_process(delta: float) -> void:
 		var instance = explodeScene.instantiate()
 		get_parent().add_child(instance)
 		instance.position = position
+		instance.name = "explosion"
 		queue_free()
 		#explode

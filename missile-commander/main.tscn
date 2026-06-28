@@ -1,13 +1,34 @@
 [gd_scene format=3 uid="uid://saeaji8xpro"]
 
 [ext_resource type="PackedScene" uid="uid://cafm8piv0pj8l" path="res://player.tscn" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://c3df07tk2mhx6" path="res://playermissile.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://0euha8mle6ox" path="res://cityBox.tscn" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://bcooiiq78o8w6" path="res://missile_spawner.gd" id="4_1bvp3"]
 
 [node name="Node2D" type="Node2D" unique_id=1648721674]
 
 [node name="player" parent="." unique_id=727359428 instance=ExtResource("1_ig7tw")]
-position = Vector2(548, 30)
+position = Vector2(295, 194)
 
-[node name="CharacterBody2D2" parent="." unique_id=1163256381 instance=ExtResource("2_0xm2m")]
-position = Vector2(173, 96)
-scale = Vector2(2, 2)
+[node name="city1" parent="." unique_id=230928596 instance=ExtResource("2_0xm2m")]
+position = Vector2(69, 339)
+
+[node name="city2" parent="." unique_id=1535580372 instance=ExtResource("2_0xm2m")]
+position = Vector2(191, 339)
+
+[node name="city3" parent="." unique_id=1968582272 instance=ExtResource("2_0xm2m")]
+position = Vector2(314, 337)
+
+[node name="city4" parent="." unique_id=1655709242 instance=ExtResource("2_0xm2m")]
+position = Vector2(431, 337)
+
+[node name="city5" parent="." unique_id=1575371350 instance=ExtResource("2_0xm2m")]
+position = Vector2(549, 336)
+
+[node name="missileSpawner" type="Node2D" parent="." unique_id=667297252]
+script = ExtResource("4_1bvp3")
+
+[node name="Timer" type="Timer" parent="missileSpawner" unique_id=253933911]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="missileSpawner/Timer" to="missileSpawner" method="_on_timer_timeout"]

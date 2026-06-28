@@ -8,6 +8,7 @@ var canShoot = true
 func spawn(scene) -> void:
 	var instance = scene.instantiate()
 	get_parent().add_child(instance)
+	instance.name = "playermissile"
 
 func _physics_process(delta: float) -> void:
 	position = get_global_mouse_position()
