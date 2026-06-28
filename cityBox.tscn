@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://0euha8mle6ox"]
+
+[ext_resource type="Texture2D" uid="uid://cdqas26a0fsy4" path="res://icon.svg" id="1_x68rp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_35xv0"]
+size = Vector2(54, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ggojm"]
+size = Vector2(52, 38)
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=230928596]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1600972225]
+shape = SubResource("RectangleShape2D_35xv0")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=942421185]
+position = Vector2(-7.1525574e-07, 7.1525574e-07)
+scale = Vector2(0.421875, 0.3125)
+texture = ExtResource("1_x68rp")
+
+[node name="hitboxCity" type="Area2D" parent="." unique_id=277844209]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitboxCity" unique_id=1154186042]
+shape = SubResource("RectangleShape2D_ggojm")
