@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://sms6mebq3hmr"]
+
+[ext_resource type="Texture2D" uid="uid://cdqas26a0fsy4" path="res://icon.svg" id="1_q7epf"]
+[ext_resource type="Script" uid="uid://cn1n34oronoem" path="res://explosion.gd" id="1_vxas0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_35xv0"]
+
+[sub_resource type="Animation" id="Animation_vxas0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Icon:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.15, 0.15)]
+}
+
+[sub_resource type="Animation" id="Animation_j4sxf"]
+resource_name = "explode"
+length = 3.5000000000000004
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.9666667, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(3, 3), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Icon:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.9666667, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.15, 0.15), Vector2(0.4, 0.4), Vector2(0.15, 0.15)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m5xho"]
+_data = {
+&"RESET": SubResource("Animation_vxas0"),
+&"explode": SubResource("Animation_j4sxf")
+}
+
+[node name="explosion" type="Area2D" unique_id=1393510990]
+script = ExtResource("1_vxas0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1001224514]
+shape = SubResource("CircleShape2D_35xv0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1551141154]
+libraries/ = SubResource("AnimationLibrary_m5xho")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=736654385]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_q7epf")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
