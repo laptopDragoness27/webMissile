@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://ct60ld2unkxgd"]
+
+[ext_resource type="FontFile" uid="uid://d056ihof55ecw" path="res://fonts/Undak-KVA3y.otf" id="1_4nh4k"]
+[ext_resource type="Script" uid="uid://cksy7pahtnp75" path="res://gameover.gd" id="1_tpdqf"]
+
+[sub_resource type="Theme" id="Theme_kctv7"]
+default_font = ExtResource("1_4nh4k")
+default_font_size = 40
+
+[sub_resource type="Theme" id="Theme_tpdqf"]
+default_font = ExtResource("1_4nh4k")
+default_font_size = 40
+
+[sub_resource type="Theme" id="Theme_eeur3"]
+default_font = ExtResource("1_4nh4k")
+default_font_size = 37
+
+[sub_resource type="Theme" id="Theme_4nh4k"]
+default_font = ExtResource("1_4nh4k")
+default_font_size = 30
+
+[node name="Control" type="Control" unique_id=580976542]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tpdqf")
+
+[node name="score" type="Label" parent="." unique_id=1353406514]
+texture_filter = 1
+layout_mode = 0
+offset_left = 168.0
+offset_top = 146.0
+offset_right = 465.0
+offset_bottom = 208.0
+theme = SubResource("Theme_kctv7")
+theme_override_colors/font_color = Color(0.3372549, 0.827451, 0.36078432, 1)
+text = "00000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GO" type="Label" parent="." unique_id=822844373]
+texture_filter = 1
+layout_mode = 0
+offset_left = 168.0
+offset_top = 30.0
+offset_right = 465.0
+offset_bottom = 92.0
+theme = SubResource("Theme_tpdqf")
+theme_override_colors/font_color = Color(0.3372549, 0.827451, 0.36078432, 1)
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="restart" type="Button" parent="." unique_id=766393595]
+texture_filter = 1
+layout_mode = 0
+offset_left = 217.0
+offset_top = 231.0
+offset_right = 429.0
+offset_bottom = 293.0
+theme = SubResource("Theme_eeur3")
+theme_override_colors/font_color = Color(0.3372549, 0.827451, 0.36078432, 1)
+text = "PLAY AGAIN"
+
+[node name="HS" type="Label" parent="." unique_id=186489482]
+texture_filter = 1
+layout_mode = 0
+offset_left = 169.0
+offset_top = 100.0
+offset_right = 466.0
+offset_bottom = 162.0
+theme = SubResource("Theme_4nh4k")
+theme_override_colors/font_color = Color(0.3372549, 0.827451, 0.36078432, 1)
+text = "SCORE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="restart" to="." method="_on_restart_pressed"]

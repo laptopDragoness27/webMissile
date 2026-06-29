@@ -1,13 +1,12 @@
 extends CharacterBody2D
 
 var explodeScene = preload("res://explosion.tscn")
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
 var targetpos
 func _ready():
 	position = Vector2(320,360)
 	targetpos = get_parent().get_node("player").position
 	look_at(targetpos)
+	add_to_group("missiles")
 	rotation_degrees+=90
 
 func _physics_process(delta: float) -> void:
@@ -21,5 +20,6 @@ func _physics_process(delta: float) -> void:
 		get_parent().add_child(instance)
 		instance.position = position
 		instance.name = "explosion"
+		get_tree().call_group("missiles","explosion")
 		queue_free()
 		#explode

@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://cafm8piv0pj8l"]
 
 [ext_resource type="Script" uid="uid://nphy28r2vope" path="res://player.gd" id="1_4flbx"]
+[ext_resource type="Texture2D" uid="uid://s8e4iskcqbig" path="res://art/cursor.png" id="2_onrkg"]
+[ext_resource type="AudioStream" uid="uid://cc1fcuyqdi345" path="res://audio/laserShoot.wav" id="3_i3pqv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_35xv0"]
 size = Vector2(16, 16)
@@ -12,13 +14,17 @@ script = ExtResource("1_4flbx")
 shape = SubResource("RectangleShape2D_35xv0")
 disabled = true
 
-[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1295224353]
-position = Vector2(10, 0)
-color = Color(0.5141741, 0.0017520556, 0.7268601, 1)
-polygon = PackedVector2Array(-18, -8, -18, 8, -1, 8, -1, -8)
-
 [node name="Timer" type="Timer" parent="." unique_id=1720065104]
-wait_time = 0.7
+wait_time = 1.5
 one_shot = true
+
+[node name="Cursor" type="Sprite2D" parent="." unique_id=1450610864]
+texture_filter = 1
+texture = ExtResource("2_onrkg")
+
+[node name="shooter" type="AudioStreamPlayer2D" parent="." unique_id=1924606814]
+stream = ExtResource("3_i3pqv")
+max_polyphony = 5
+panning_strength = 0.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

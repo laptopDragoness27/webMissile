@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://dhjf4xtv1jjhr"]
+
+[ext_resource type="FontFile" uid="uid://d056ihof55ecw" path="res://fonts/Undak-KVA3y.otf" id="1_3cdud"]
+[ext_resource type="Script" uid="uid://ccplgrapxuxdk" path="res://start_screen.gd" id="1_gxmh3"]
+[ext_resource type="Texture2D" uid="uid://u22chtj2nal7" path="res://art/playermissile.png" id="1_w8rx1"]
+[ext_resource type="Texture2D" uid="uid://08egbjq2pmkl" path="res://art/enemybomb.png" id="2_gxmh3"]
+[ext_resource type="Texture2D" uid="uid://cixollq33puc0" path="res://art/explosion.png" id="4_8g407"]
+
+[sub_resource type="Theme" id="Theme_35xv0"]
+default_font = ExtResource("1_3cdud")
+default_font_size = 40
+
+[sub_resource type="Theme" id="Theme_w8rx1"]
+default_font = ExtResource("1_3cdud")
+default_font_size = 37
+
+[node name="Control" type="Control" unique_id=1230950271]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gxmh3")
+
+[node name="background" type="Polygon2D" parent="." unique_id=181982525]
+color = Color(0.09, 0.09, 0.09, 1)
+polygon = PackedVector2Array(-27, -26, 680, -25, 665, 410, -35, 388)
+
+[node name="Playermissile" type="Sprite2D" parent="." unique_id=1068966068]
+texture_filter = 1
+position = Vector2(430, 237)
+rotation = -0.44599146
+texture = ExtResource("1_w8rx1")
+
+[node name="Enemybomb" type="Sprite2D" parent="." unique_id=1839648406]
+texture_filter = 1
+position = Vector2(344, 143)
+rotation = -2.5504699
+texture = ExtResource("2_gxmh3")
+
+[node name="Label" type="Label" parent="." unique_id=2009380461]
+texture_filter = 1
+layout_mode = 0
+offset_left = 173.0
+offset_top = 52.0
+offset_right = 470.0
+offset_bottom = 114.0
+theme = SubResource("Theme_35xv0")
+theme_override_colors/font_color = Color(0.3372549, 0.827451, 0.36078432, 1)
+text = "MISSILE COMMANDER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Explosion" type="Sprite2D" parent="." unique_id=743507737]
+texture_filter = 1
+position = Vector2(76, 170)
+texture = ExtResource("4_8g407")
+
+[node name="Explosion2" type="Sprite2D" parent="." unique_id=1362052630]
+texture_filter = 1
+position = Vector2(561, 183)
+scale = Vector2(1.9375, 1.9375)
+texture = ExtResource("4_8g407")
+
+[node name="startbutton" type="Button" parent="." unique_id=1384086351]
+texture_filter = 1
+layout_mode = 0
+offset_left = 247.0
+offset_top = 232.0
+offset_right = 399.0
+offset_bottom = 294.0
+theme = SubResource("Theme_w8rx1")
+theme_override_colors/font_color = Color(0.3372549, 0.827451, 0.36078432, 1)
+text = "START"
+
+[connection signal="pressed" from="startbutton" to="." method="_on_startbutton_pressed"]

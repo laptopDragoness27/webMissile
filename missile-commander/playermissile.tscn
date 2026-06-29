@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://c3df07tk2mhx6"]
 
-[ext_resource type="Texture2D" uid="uid://cdqas26a0fsy4" path="res://icon.svg" id="1_ae6uo"]
 [ext_resource type="Script" uid="uid://b5ng7vx7k6buv" path="res://playermissile.gd" id="1_tnhvl"]
+[ext_resource type="Texture2D" uid="uid://u22chtj2nal7" path="res://art/playermissile.png" id="2_tnhvl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_35xv0"]
-radius = 5.0
-height = 15.0
+radius = 4.0
+height = 18.0
 
 [node name="playermissile" type="CharacterBody2D" unique_id=1163256381]
 collision_layer = 2
@@ -16,6 +16,7 @@ script = ExtResource("1_tnhvl")
 shape = SubResource("CapsuleShape2D_35xv0")
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=844201326]
-position = Vector2(0, 9.536743e-07)
-scale = Vector2(0.078125, 0.117187515)
-texture = ExtResource("1_ae6uo")
+texture_filter = 1
+position = Vector2(-1.1920929e-07, -5.684342e-14)
+scale = Vector2(0.875, 0.5625)
+texture = ExtResource("2_tnhvl")

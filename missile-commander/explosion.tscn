@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://sms6mebq3hmr"]
 
-[ext_resource type="Texture2D" uid="uid://cdqas26a0fsy4" path="res://icon.svg" id="1_q7epf"]
 [ext_resource type="Script" uid="uid://cn1n34oronoem" path="res://explosion.gd" id="1_vxas0"]
+[ext_resource type="Texture2D" uid="uid://cixollq33puc0" path="res://art/explosion.png" id="2_vxas0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_35xv0"]
 
@@ -29,12 +29,12 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.15, 0.15)]
+"values": [Vector2(0.31, 0.31)]
 }
 
 [sub_resource type="Animation" id="Animation_j4sxf"]
 resource_name = "explode"
-length = 4.0
+length = 3.5000000000000004
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -42,10 +42,10 @@ tracks/0/path = NodePath("CollisionShape2D:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.9666667, 3.9666667),
+"times": PackedFloat32Array(0, 1.9666667, 3.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(4, 4), Vector2(1, 1)]
+"values": [Vector2(0.1, 0.1), Vector2(3, 3), Vector2(0.5, 0.5)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -54,10 +54,10 @@ tracks/1/path = NodePath("Icon:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.9333333, 3.9666667),
+"times": PackedFloat32Array(0, 1.9666667, 3.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0.15, 0.15), Vector2(0.6, 0.6), Vector2(0.15, 0.15)]
+"values": [Vector2(0.035, 0.035), Vector2(0.95, 0.95), Vector2(0.155, 0.155)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m5xho"]
@@ -76,7 +76,8 @@ shape = SubResource("CircleShape2D_35xv0")
 libraries/ = SubResource("AnimationLibrary_m5xho")
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=736654385]
-scale = Vector2(0.15, 0.15)
-texture = ExtResource("1_q7epf")
+texture_filter = 1
+scale = Vector2(0.31, 0.31)
+texture = ExtResource("2_vxas0")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

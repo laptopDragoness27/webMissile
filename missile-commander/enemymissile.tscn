@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://d2shh7pdlt7a8"]
 
 [ext_resource type="Script" uid="uid://by6l5fqqlrtup" path="res://enemymissile.gd" id="1_0iim8"]
-[ext_resource type="Texture2D" uid="uid://cdqas26a0fsy4" path="res://icon.svg" id="2_ajcun"]
+[ext_resource type="Texture2D" uid="uid://08egbjq2pmkl" path="res://art/enemybomb.png" id="2_0iim8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_35xv0"]
 radius = 5.0
-height = 15.0
+height = 19.983913
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ggojm"]
-radius = 6.0
-height = 20.0
+radius = 5.9999905
+height = 21.999964
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1163256381]
 rotation = 0.0077438354
@@ -17,11 +17,12 @@ script = ExtResource("1_0iim8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=866638835]
 shape = SubResource("CapsuleShape2D_35xv0")
+disabled = true
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=844201326]
-position = Vector2(0, 9.536743e-07)
-scale = Vector2(0.078125, 0.117187515)
-texture = ExtResource("2_ajcun")
+texture_filter = 1
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_0iim8")
 
 [node name="hitbox" type="Area2D" parent="." unique_id=985399390]
 rotation = -0.009536428
